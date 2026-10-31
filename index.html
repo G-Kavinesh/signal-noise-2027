@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#FAFAF8;color:#0B0B0B;font-family:'Archivo','Helvetica Neue',Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+::selection{background:#FF4F00;color:#0B0B0B}
+a{color:inherit;text-decoration:none}
+a:hover{color:#FF4F00}
+button{font:inherit;color:inherit}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="position:relative;overflow-x:hidden">
+
+<sc-if value="{{ showGrid }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:100;pointer-events:none;padding:0 clamp(16px,3vw,48px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(12px,1.6vw,24px)">
+<div style="background:rgba(255,79,0,0.07);border-left:1px solid rgba(255,79,0,0.35);border-right:1px solid rgba(255,79,0,0.35)"></div><div style="background:rgba(255,79,0,0.07);border-left:1px solid rgba(255,79,0,0.35);border-right:1px solid rgba(255,79,0,0.35)"></div><div style="background:rgba(255,79,0,0.07);border-left:1px solid rgba(255,79,0,0.35);border-right:1px solid rgba(255,79,0,0.35)"></div><div style="background:rgba(255,79,0,0.07);border-left:1px solid rgba(255,79,0,0.35);border-right:1px solid rgba(255,79,0,0.35)"></div><div style="background:rgba(255,79,0,0.07);border-left:1px solid rgba(255,79,0,0.35);border-right:1px solid rgba(255,79,0,0.35)"></div><div style="background:rgba(255,79,0,0.07);border-left:1px solid rgba(255,79,0,0.35);border-right:1px solid rgba(255,79,0,0.35)"></div><div style="background:rgba(255,79,0,0.07);border-left:1px solid rgba(255,79,0,0.35);border-right:1px solid rgba(255,79,0,0.35)"></div><div style="background:rgba(255,79,0,0.07);border-left:1px solid rgba(255,79,0,0.35);border-right:1px solid rgba(255,79,0,0.35)"></div><div style="background:rgba(255,79,0,0.07);border-left:1px solid rgba(255,79,0,0.35);border-right:1px solid rgba(255,79,0,0.35)"></div><div style="background:rgba(255,79,0,0.07);border-left:1px solid rgba(255,79,0,0.35);border-right:1px solid rgba(255,79,0,0.35)"></div><div style="background:rgba(255,79,0,0.07);border-left:1px solid rgba(255,79,0,0.35);border-right:1px solid rgba(255,79,0,0.35)"></div><div style="background:rgba(255,79,0,0.07);border-left:1px solid rgba(255,79,0,0.35);border-right:1px solid rgba(255,79,0,0.35)"></div>
+</div>
+</sc-if>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:50;height:56px;display:flex;align-items:center;gap:24px;padding:0 clamp(16px,3vw,48px);background:rgba(250,250,248,0.92);backdrop-filter:blur(8px);border-bottom:1px solid #0B0B0B;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase">
+<a href="#top" style="font-family:'Archivo',sans-serif;font-size:17px;letter-spacing:-0.01em;font-variation-settings:'wght' 800,'wdth' 90;text-transform:none;white-space:nowrap">SIGNAL<span style="color:#FF4F00">/</span>NOISE</a>
+<nav style="flex:1 1 auto;display:flex;flex-wrap:wrap;gap:0 28px;height:16px;overflow:hidden;justify-content:center">
+<a href="#manifesto">Manifesto</a><a href="#speakers">Speakers</a><a href="#schedule">Schedule</a><a href="#venue">Venue</a><a href="#tickets">Tickets</a><a href="#sponsors">Sponsors</a>
+</nav>
+<span style="white-space:nowrap;font-variant-numeric:tabular-nums">T–{{ cd.d }}:{{ cd.h }}:{{ cd.m }}:{{ cd.s }}</span>
+<a href="#tickets" style="background:#FF4F00;color:#0B0B0B;padding:9px 14px;white-space:nowrap;font-weight:700" style-hover="background:#0B0B0B;color:#FAFAF8">Tickets</a>
+</header>
+
+<section id="top" data-screen-label="01 Hero" style="position:relative;min-height:100svh;overflow:hidden;border-bottom:2px solid #0B0B0B">
+<div ref="{{ fieldRef }}" style="position:absolute;inset:0;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 62%,transparent 94%);mask-image:linear-gradient(to bottom,#000 0%,#000 62%,transparent 94%)"></div>
+<div style="position:relative;z-index:1;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;gap:32px;padding:88px clamp(16px,3vw,48px) 0">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px clamp(12px,1.6vw,24px);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;line-height:1.5;letter-spacing:0.04em;text-transform:uppercase">
+<div style="display:flex;flex-direction:column"><span style="color:#FF4F00">● Edition 03</span><span>Design × Artificial Intelligence</span></div>
+<div style="display:flex;flex-direction:column"><span>Two days</span><span>Thu 14 — Fri 15 May 2027</span></div>
+<div style="display:flex;flex-direction:column"><span>Werkhal Maas</span><span>Rotterdam, NL</span></div>
+<div style="display:flex;flex-direction:column"><span>1,200 attendees</span><span>3 tracks / 32 sessions</span></div>
+</div>
+<h1 ref="{{ heroRef }}" data-fitgroup="" data-max="420" style="margin:0;font-weight:400;font-size:18vw;line-height:0.8;letter-spacing:-0.02em;font-variation-settings:'wght' 800,'wdth' 112;user-select:none">
+<div data-fit="" style="display:flex;width:max-content"><span data-l="" style="display:inline-block">S</span><span data-l="" style="display:inline-block">I</span><span data-l="" style="display:inline-block">G</span><span data-l="" style="display:inline-block">N</span><span data-l="" style="display:inline-block">A</span><span data-l="" style="display:inline-block">L</span><span data-l="" data-b="300,62" data-t="900,62" style="display:inline-block;color:#FF4F00;font-variation-settings:'wght' 300,'wdth' 62">/</span></div>
+<div data-fit="" style="display:flex;width:max-content;align-items:flex-end;gap:0.06em"><span style="display:flex"><span data-l="" style="display:inline-block">N</span><span data-l="" style="display:inline-block">O</span><span data-l="" style="display:inline-block">I</span><span data-l="" style="display:inline-block">S</span><span data-l="" style="display:inline-block">E</span></span><span style="display:flex;color:#FF4F00"><span data-l="" data-b="100,62" data-t="900,62" style="display:inline-block;font-variation-settings:'wght' 100,'wdth' 62">2</span><span data-l="" data-b="100,62" data-t="900,62" style="display:inline-block;font-variation-settings:'wght' 100,'wdth' 62">0</span><span data-l="" data-b="100,62" data-t="900,62" style="display:inline-block;font-variation-settings:'wght' 100,'wdth' 62">2</span><span data-l="" data-b="100,62" data-t="900,62" style="display:inline-block;font-variation-settings:'wght' 100,'wdth' 62">7</span></span></div>
+</h1>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;padding:20px 0 28px;border-top:1px solid #0B0B0B;background:#FAFAF8">
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase">Doors open in</span>
+<div style="display:flex;gap:clamp(14px,2.4vw,36px);font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums">
+<div style="display:flex;flex-direction:column"><span style="font-size:clamp(34px,4.4vw,68px);line-height:1;font-weight:500;letter-spacing:-0.04em">{{ cd.d }}</span><span style="font-size:11px;letter-spacing:0.08em;color:#6B6B68">DAYS</span></div>
+<div style="display:flex;flex-direction:column"><span style="font-size:clamp(34px,4.4vw,68px);line-height:1;font-weight:500;letter-spacing:-0.04em">{{ cd.h }}</span><span style="font-size:11px;letter-spacing:0.08em;color:#6B6B68">HRS</span></div>
+<div style="display:flex;flex-direction:column"><span style="font-size:clamp(34px,4.4vw,68px);line-height:1;font-weight:500;letter-spacing:-0.04em">{{ cd.m }}</span><span style="font-size:11px;letter-spacing:0.08em;color:#6B6B68">MIN</span></div>
+<div style="display:flex;flex-direction:column"><span style="font-size:clamp(34px,4.4vw,68px);line-height:1;font-weight:500;letter-spacing:-0.04em;color:#FF4F00">{{ cd.s }}</span><span style="font-size:11px;letter-spacing:0.08em;color:#6B6B68">SEC</span></div>
+</div>
+</div>
+<a href="#tickets" style="display:flex;align-items:center;gap:28px;background:#FF4F00;color:#0B0B0B;padding:20px 24px;min-width:min(100%,320px);justify-content:space-between;transition:background .2s" style-hover="background:#0B0B0B;color:#FAFAF8">
+<span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:clamp(26px,2.6vw,38px);line-height:1;font-variation-settings:'wght' 800,'wdth' 90;letter-spacing:-0.01em">Get tickets</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase">Early bird from €190</span></span>
+<span style="font-size:36px;line-height:1">→</span>
+</a>
+</div>
+</div>
+</section>
+
+<section id="manifesto" data-screen-label="02 Manifesto" style="padding:clamp(80px,12vw,180px) clamp(16px,3vw,48px)">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:2px solid #0B0B0B;padding-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase"><span>02 / Manifesto</span><span>Why we gather</span></div>
+<div style="margin-top:clamp(48px,7vw,110px);display:flex;flex-direction:column;font-size:clamp(38px,7vw,124px);line-height:0.98;letter-spacing:-0.03em">
+<div data-ml="" style="opacity:0.12;font-variation-settings:'wght' 150,'wdth' 100">Every model is</div>
+<div data-ml="" style="opacity:0.12;font-variation-settings:'wght' 150,'wdth' 100">trained on the past.</div>
+<div data-ml="" style="opacity:0.12;font-variation-settings:'wght' 150,'wdth' 100;padding-left:clamp(0px,16vw,280px)">Design decides</div>
+<div data-ml="" style="opacity:0.12;font-variation-settings:'wght' 150,'wdth' 100;padding-left:clamp(0px,16vw,280px)">what it becomes.</div>
+<div data-ml="" style="opacity:0.12;font-variation-settings:'wght' 150,'wdth' 100;margin-top:0.4em">Two days to find the</div>
+<div data-ml="" style="opacity:0.12;font-variation-settings:'wght' 150,'wdth' 100"><span style="color:#FF4F00">signal</span> in the noise:</div>
+<div data-ml="" style="opacity:0.12;font-variation-settings:'wght' 150,'wdth' 100;padding-left:clamp(0px,32vw,560px)">tools with taste,</div>
+<div data-ml="" style="opacity:0.12;font-variation-settings:'wght' 150,'wdth' 100;padding-left:clamp(0px,32vw,560px)">systems with judgment,</div>
+<div data-ml="" style="opacity:0.12;font-variation-settings:'wght' 150,'wdth' 100;padding-left:clamp(0px,32vw,560px)">work that is ours.</div>
+</div>
+</section>
+
+<section id="speakers" data-screen-label="03 Speakers" style="padding:0 clamp(16px,3vw,48px) clamp(80px,10vw,160px)">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:2px solid #0B0B0B;padding-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase"><span>03 / Speakers</span><span>Hover or tap for bio</span></div>
+<h2 style="margin:24px 0 clamp(32px,4vw,64px);font-weight:400;font-size:clamp(72px,15vw,260px);line-height:0.8;letter-spacing:-0.03em;font-variation-settings:'wght' 900,'wdth' 62;display:flex;align-items:flex-start;gap:0.08em">Speakers<span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.16em;letter-spacing:0;color:#FF4F00;line-height:1;margin-top:0.2em">(12)</span></h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));border-top:1px solid #0B0B0B;border-left:1px solid #0B0B0B">
+<sc-for list="{{ speakers }}" as="s" hint-placeholder-count="12">
+<div onMouseEnter="{{ s.onEnter }}" onMouseLeave="{{ s.onLeave }}" onClick="{{ s.onTap }}" style="position:relative;min-height:340px;padding:20px;border-right:1px solid #0B0B0B;border-bottom:1px solid #0B0B0B;display:flex;flex-direction:column;justify-content:space-between;gap:32px;cursor:pointer;overflow:hidden">
+<div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase"><span>{{ s.num }}</span><span>{{ s.slot }}</span></div>
+<div>
+<div style="font-size:clamp(32px,3vw,46px);line-height:0.9;letter-spacing:-0.015em;font-variation-settings:'wght' 800,'wdth' 72;text-wrap:balance">{{ s.name }}</div>
+<div style="margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;line-height:1.5;letter-spacing:0.03em;text-transform:uppercase;color:#5E5E5B">{{ s.role }}</div>
+<div style="margin-top:22px;padding-top:12px;border-top:1px solid #0B0B0B;font-size:19px;line-height:1.2;font-variation-settings:'wght' 380,'wdth' 100;text-wrap:pretty">“{{ s.talk }}”</div>
+</div>
+<sc-if value="{{ s.active }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;background:#0B0B0B;color:#FAFAF8;padding:20px;display:flex;flex-direction:column;justify-content:space-between;gap:20px">
+<div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase"><span>{{ s.num }} / {{ s.track }}</span><span style="color:#FF4F00">{{ s.slot }}</span></div>
+<div style="font-size:18px;line-height:1.4;font-variation-settings:'wght' 380,'wdth' 100;text-wrap:pretty">{{ s.bio }}</div>
+<div><div style="font-size:clamp(24px,2.2vw,32px);line-height:0.95;letter-spacing:-0.01em;font-variation-settings:'wght' 800,'wdth' 72;color:#FF4F00;text-wrap:balance">{{ s.talk }}</div><div style="margin-top:8px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase">{{ s.name }}</div></div>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section id="schedule" data-screen-label="04 Schedule" style="padding:0 clamp(16px,3vw,48px) clamp(80px,10vw,160px)">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:2px solid #0B0B0B;padding-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase"><span>04 / Schedule</span><span>All times CEST</span></div>
+<h2 style="margin:24px 0 clamp(32px,4vw,56px);font-weight:400;font-size:clamp(72px,15vw,260px);line-height:0.8;letter-spacing:-0.03em;font-variation-settings:'wght' 900,'wdth' 62">Schedule</h2>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;border-bottom:2px solid #0B0B0B;padding-bottom:16px">
+<div style="display:flex;gap:0;border:1px solid #0B0B0B">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2">
+<button onClick="{{ t.onClick }}" style="display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:12px 22px;border:none;border-right:1px solid #0B0B0B;background:{{ t.bg }};color:{{ t.fg }};cursor:pointer;text-align:left"><span style="font-size:clamp(28px,3vw,44px);line-height:0.9;font-variation-settings:'wght' 800,'wdth' 80;letter-spacing:-0.01em">{{ t.label }}</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase">{{ t.date }}</span></button>
+</sc-for>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase">
+<span style="margin-right:6px;color:#5E5E5B">Track</span>
+<sc-for list="{{ filters }}" as="f" hint-placeholder-count="4">
+<button onClick="{{ f.onClick }}" style="display:flex;gap:8px;align-items:center;padding:10px 14px;border:1px solid #0B0B0B;background:{{ f.bg }};color:#0B0B0B;cursor:pointer;font-family:inherit;font-size:inherit;letter-spacing:inherit;text-transform:inherit;min-height:44px"><span>{{ f.glyph }}</span><span>{{ f.label }}</span><span style="opacity:0.55">{{ f.count }}</span></button>
+</sc-for>
+</div>
+</div>
+<div>
+<sc-for list="{{ sessions }}" as="s" hint-placeholder-count="10">
+<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px clamp(16px,2vw,32px);padding:20px 0;border-bottom:1px solid #0B0B0B;color:{{ s.color }}">
+<div style="flex:0 0 96px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;font-variant-numeric:tabular-nums">{{ s.time }}</div>
+<div style="flex:1 1 360px;min-width:0">
+<div style="font-size:{{ s.size }};line-height:1.02;letter-spacing:-0.015em;font-variation-settings:'wght' {{ s.wght }},'wdth' 88;text-wrap:balance">{{ s.title }}</div>
+<sc-if value="{{ s.speaker }}" hint-placeholder-val="{{ true }}"><div style="margin-top:8px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;letter-spacing:0.02em">{{ s.speaker }}</div></sc-if>
+</div>
+<div style="flex:0 1 280px;display:flex;justify-content:space-between;gap:16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase"><span>{{ s.glyph }} {{ s.trackLabel }}</span><span>{{ s.room }}</span></div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section id="venue" data-screen-label="05 Venue" style="padding:0 clamp(16px,3vw,48px) clamp(80px,10vw,160px)">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:2px solid #0B0B0B;padding-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase"><span>05 / Venue</span><span>51.9016° N, 4.4832° E</span></div>
+<h2 style="margin:24px 0 clamp(32px,4vw,56px);font-weight:400;font-size:clamp(72px,15vw,260px);line-height:0.8;letter-spacing:-0.03em;font-variation-settings:'wght' 900,'wdth' 62">Werkhal Maas</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(24px,3vw,48px)">
+<div style="position:relative;aspect-ratio:4/3;border:1px solid #0B0B0B;background:repeating-linear-gradient(135deg,#FAFAF8 0 9px,#EDEDEA 9px 10px);overflow:hidden">
+<span style="position:absolute;left:14px;top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;background:#FAFAF8;padding:4px 6px">Map embed — Katendrecht, Rotterdam</span>
+<div style="position:absolute;left:52%;top:50%;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:#FF4F00;box-shadow:0 0 0 10px rgba(255,79,0,0.2),0 0 0 22px rgba(255,79,0,0.08)"></div>
+<span style="position:absolute;left:calc(52% + 22px);top:calc(50% - 9px);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:#FAFAF8;padding:2px 5px">Werkhal Maas</span>
+<span style="position:absolute;left:30%;top:28%;width:22px;height:22px;background:#0B0B0B;color:#FAFAF8;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px">1</span>
+<span style="position:absolute;left:68%;top:32%;width:22px;height:22px;background:#0B0B0B;color:#FAFAF8;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px">2</span>
+<span style="position:absolute;left:38%;top:72%;width:22px;height:22px;background:#0B0B0B;color:#FAFAF8;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px">3</span>
+<span style="position:absolute;left:78%;top:66%;width:22px;height:22px;background:#0B0B0B;color:#FAFAF8;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px">4</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:36px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#5E5E5B">Address</span><span style="font-size:19px;line-height:1.35">Werkhal Maas<br>Maashaven Oostzijde 40<br>3072 Rotterdam, NL</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#5E5E5B">Getting there</span><span style="font-size:19px;line-height:1.35">Metro D/E to Rijnhaven, 6 min walk. Water taxi stop at the door.</span></div>
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#5E5E5B;padding-bottom:10px;border-bottom:2px solid #0B0B0B"><span>Nearby hotels</span><span>Code SN27 — 15% off</span></div>
+<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;padding:16px 0;border-bottom:1px solid #0B0B0B"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;width:22px">01</span><span style="flex:1 1 200px;font-size:24px;font-variation-settings:'wght' 700,'wdth' 85">Hotel Kaap</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;text-transform:uppercase">4 min walk</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;width:90px;text-align:right">€165/nt</span></div>
+<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;padding:16px 0;border-bottom:1px solid #0B0B0B"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;width:22px">02</span><span style="flex:1 1 200px;font-size:24px;font-variation-settings:'wght' 700,'wdth' 85">The Dockmaster</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;text-transform:uppercase">9 min walk</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;width:90px;text-align:right">€210/nt</span></div>
+<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;padding:16px 0;border-bottom:1px solid #0B0B0B"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;width:22px">03</span><span style="flex:1 1 200px;font-size:24px;font-variation-settings:'wght' 700,'wdth' 85">Hostel Rijnhaven</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;text-transform:uppercase">6 min walk</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;width:90px;text-align:right">€58/nt</span></div>
+<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;padding:16px 0;border-bottom:1px solid #0B0B0B"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;width:22px">04</span><span style="flex:1 1 200px;font-size:24px;font-variation-settings:'wght' 700,'wdth' 85">Maas Tower Suites</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;text-transform:uppercase">12 min walk</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;width:90px;text-align:right">€245/nt</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="tickets" data-screen-label="06 Tickets" style="padding:0 clamp(16px,3vw,48px) clamp(80px,10vw,160px)">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:2px solid #0B0B0B;padding-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase"><span>06 / Tickets</span><span style="color:#FF4F00">● Early bird ends 31.01.2027</span></div>
+<h2 style="margin:24px 0 clamp(32px,4vw,56px);font-weight:400;font-size:clamp(72px,15vw,260px);line-height:0.8;letter-spacing:-0.03em;font-variation-settings:'wght' 900,'wdth' 62">Tickets</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));border-top:1px solid #0B0B0B;border-left:1px solid #0B0B0B">
+
+<div style="display:flex;flex-direction:column;gap:28px;padding:24px;border-right:1px solid #0B0B0B;border-bottom:1px solid #0B0B0B">
+<div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase"><span>Tier 01</span><span>Valid student ID</span></div>
+<div style="font-size:clamp(52px,5vw,80px);line-height:0.85;letter-spacing:-0.02em;font-variation-settings:'wght' 900,'wdth' 62">Student</div>
+<div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap"><span style="font-size:clamp(56px,6vw,92px);line-height:0.9;letter-spacing:-0.04em;font-variation-settings:'wght' 300,'wdth' 100">€190</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:18px;text-decoration:line-through;text-decoration-color:#FF4F00;text-decoration-thickness:2px;color:#5E5E5B">€290</span></div>
+<div style="display:flex;flex-direction:column;font-size:17px;line-height:1.35"><span style="padding:10px 0;border-top:1px solid #0B0B0B">Both conference days</span><span style="padding:10px 0;border-top:1px solid #0B0B0B">Talk recordings</span><span style="padding:10px 0;border-top:1px solid #0B0B0B;border-bottom:1px solid #0B0B0B">Opening night</span></div>
+<div style="margin-top:auto;display:flex;flex-direction:column;gap:8px"><div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase"><span>Seats left</span><span>38 / 150</span></div><div style="height:10px;border:1px solid #0B0B0B"><div style="height:100%;width:25%;background:#FF4F00"></div></div></div>
+<a href="#tickets" style="display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border:1px solid #0B0B0B;font-size:20px;font-variation-settings:'wght' 700,'wdth' 90" style-hover="background:#0B0B0B;color:#FAFAF8">Buy Student<span>→</span></a>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:28px;padding:24px;border-right:1px solid #0B0B0B;border-bottom:1px solid #0B0B0B;background:#0B0B0B;color:#FAFAF8">
+<div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase"><span>Tier 02</span><span style="color:#FF4F00">Most booked</span></div>
+<div style="font-size:clamp(52px,5vw,80px);line-height:0.85;letter-spacing:-0.02em;font-variation-settings:'wght' 900,'wdth' 62">Standard</div>
+<div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap"><span style="font-size:clamp(56px,6vw,92px);line-height:0.9;letter-spacing:-0.04em;font-variation-settings:'wght' 300,'wdth' 100">€490</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:18px;text-decoration:line-through;text-decoration-color:#FF4F00;text-decoration-thickness:2px;color:#A8A8A4">€690</span></div>
+<div style="display:flex;flex-direction:column;font-size:17px;line-height:1.35"><span style="padding:10px 0;border-top:1px solid #FAFAF8">Both conference days + workshops</span><span style="padding:10px 0;border-top:1px solid #FAFAF8">Talk recordings</span><span style="padding:10px 0;border-top:1px solid #FAFAF8;border-bottom:1px solid #FAFAF8">Opening night + closing drinks</span></div>
+<div style="margin-top:auto;display:flex;flex-direction:column;gap:8px"><div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase"><span>Seats left</span><span>212 / 600</span></div><div style="height:10px;border:1px solid #FAFAF8"><div style="height:100%;width:35%;background:#FF4F00"></div></div></div>
+<a href="#tickets" style="display:flex;justify-content:space-between;align-items:center;padding:16px 18px;background:#FF4F00;color:#0B0B0B;font-size:20px;font-variation-settings:'wght' 700,'wdth' 90" style-hover="background:#FAFAF8;color:#0B0B0B">Buy Standard<span>→</span></a>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:28px;padding:24px;border-right:1px solid #0B0B0B;border-bottom:1px solid #0B0B0B">
+<div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase"><span>Tier 03</span><span>5 seats</span></div>
+<div style="font-size:clamp(52px,5vw,80px);line-height:0.85;letter-spacing:-0.02em;font-variation-settings:'wght' 900,'wdth' 62">Team</div>
+<div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap"><span style="font-size:clamp(56px,6vw,92px);line-height:0.9;letter-spacing:-0.04em;font-variation-settings:'wght' 300,'wdth' 100">€1,950</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:18px;text-decoration:line-through;text-decoration-color:#FF4F00;text-decoration-thickness:2px;color:#5E5E5B">€2,750</span></div>
+<div style="display:flex;flex-direction:column;font-size:17px;line-height:1.35"><span style="padding:10px 0;border-top:1px solid #0B0B0B">Everything in Standard, ×5</span><span style="padding:10px 0;border-top:1px solid #0B0B0B">Reserved seating, Main Hall</span><span style="padding:10px 0;border-top:1px solid #0B0B0B;border-bottom:1px solid #0B0B0B">Transferable names</span></div>
+<div style="margin-top:auto;display:flex;flex-direction:column;gap:8px"><div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase"><span style="color:#C23A00;font-weight:700">Only 9 left</span><span>9 / 40</span></div><div style="height:10px;border:1px solid #0B0B0B"><div style="height:100%;width:22.5%;background:#FF4F00"></div></div></div>
+<a href="#tickets" style="display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border:1px solid #0B0B0B;font-size:20px;font-variation-settings:'wght' 700,'wdth' 90" style-hover="background:#0B0B0B;color:#FAFAF8">Buy Team<span>→</span></a>
+</div>
+
+</div>
+</section>
+
+<section id="sponsors" data-screen-label="07 Sponsors" style="padding:0 clamp(16px,3vw,48px) clamp(80px,10vw,160px)">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:2px solid #0B0B0B;padding-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase"><span>07 / Sponsors</span><a href="mailto:partners@signalnoise.events">Become a partner ↗</a></div>
+<h2 style="margin:24px 0 clamp(32px,4vw,56px);font-weight:400;font-size:clamp(72px,15vw,260px);line-height:0.8;letter-spacing:-0.03em;font-variation-settings:'wght' 900,'wdth' 62">Sponsors</h2>
+<div style="display:flex;flex-direction:column;border-top:2px solid #0B0B0B">
+<div style="display:flex;flex-wrap:wrap;border-bottom:1px solid #0B0B0B">
+<div style="flex:0 0 180px;padding:18px 0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase">Principal</div>
+<div style="flex:1 1 400px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))">
+<div style="min-height:180px;display:flex;align-items:center;justify-content:center;border-left:1px solid #0B0B0B;font-size:clamp(40px,4.6vw,72px);letter-spacing:-0.03em;font-variation-settings:'wght' 900,'wdth' 125">Fieldwork</div>
+<div style="min-height:180px;display:flex;align-items:center;justify-content:center;border-left:1px solid #0B0B0B;font-size:clamp(40px,4.6vw,72px);letter-spacing:-0.02em;font-variation-settings:'wght' 200,'wdth' 62">Halcyon<span style="color:#FF4F00">.</span>ai</div>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;border-bottom:1px solid #0B0B0B">
+<div style="flex:0 0 180px;padding:18px 0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase">Partners</div>
+<div style="flex:1 1 400px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))">
+<div style="min-height:120px;display:flex;align-items:center;justify-content:center;border-left:1px solid #0B0B0B;font-size:30px;font-variation-settings:'wght' 700,'wdth' 75;text-transform:uppercase">Kern &amp; Co</div>
+<div style="min-height:120px;display:flex;align-items:center;justify-content:center;border-left:1px solid #0B0B0B;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:24px;font-weight:500">oblique_sys</div>
+<div style="min-height:120px;display:flex;align-items:center;justify-content:center;border-left:1px solid #0B0B0B;font-size:30px;letter-spacing:0.1em;font-variation-settings:'wght' 300,'wdth' 125">ARCFOLD</div>
+<div style="min-height:120px;display:flex;align-items:center;justify-content:center;border-left:1px solid #0B0B0B;font-size:32px;font-variation-settings:'wght' 900,'wdth' 90;letter-spacing:-0.04em">Lattice</div>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;border-bottom:1px solid #0B0B0B">
+<div style="flex:0 0 180px;padding:18px 0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase">Supporters</div>
+<div style="flex:1 1 400px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr))">
+<div style="min-height:84px;display:flex;align-items:center;justify-content:center;border-left:1px solid #0B0B0B;font-size:20px;font-variation-settings:'wght' 600,'wdth' 100">Softgrid</div>
+<div style="min-height:84px;display:flex;align-items:center;justify-content:center;border-left:1px solid #0B0B0B;font-size:20px;font-variation-settings:'wght' 800,'wdth' 62;text-transform:uppercase">Paper Tiger</div>
+<div style="min-height:84px;display:flex;align-items:center;justify-content:center;border-left:1px solid #0B0B0B;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:16px">hypha/</div>
+<div style="min-height:84px;display:flex;align-items:center;justify-content:center;border-left:1px solid #0B0B0B;font-size:20px;font-variation-settings:'wght' 250,'wdth' 110;letter-spacing:0.12em">MOIRÉ</div>
+<div style="min-height:84px;display:flex;align-items:center;justify-content:center;border-left:1px solid #0B0B0B;font-size:20px;font-variation-settings:'wght' 700,'wdth' 100">Studio Null</div>
+<div style="min-height:84px;display:flex;align-items:center;justify-content:center;border-left:1px solid #0B0B0B;font-size:20px;font-variation-settings:'wght' 400,'wdth' 80">Vantage Render</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer data-screen-label="08 Footer" style="background:#0B0B0B;color:#FAFAF8;padding:clamp(56px,8vw,120px) clamp(16px,3vw,48px) 28px;overflow:hidden">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:2px solid #FAFAF8;padding-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase"><span>08 / End of transmission</span><span>14—15.05.2027 · Rotterdam</span></div>
+<div data-fitgroup="" data-max="400" style="margin:clamp(32px,5vw,72px) 0;font-size:18vw;line-height:0.8;letter-spacing:-0.02em;font-variation-settings:'wght' 800,'wdth' 112;user-select:none">
+<div data-fit="" style="display:flex;width:max-content"><span data-l="" style="display:inline-block">S</span><span data-l="" style="display:inline-block">E</span><span data-l="" style="display:inline-block">E</span><span style="display:inline-block;width:0.28em"></span><span data-l="" style="display:inline-block">Y</span><span data-l="" style="display:inline-block">O</span><span data-l="" style="display:inline-block">U</span></div>
+<div data-fit="" style="display:flex;width:max-content"><span data-l="" style="display:inline-block">T</span><span data-l="" style="display:inline-block">H</span><span data-l="" style="display:inline-block">E</span><span data-l="" style="display:inline-block">R</span><span data-l="" style="display:inline-block">E</span><span data-l="" data-b="900,62" data-t="200,62" style="display:inline-block;color:#FF4F00;font-variation-settings:'wght' 900,'wdth' 62">.</span></div>
+</div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;border-top:1px solid #FAFAF8;padding-top:20px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;letter-spacing:0.04em;text-transform:uppercase">
+<div style="display:flex;flex-wrap:wrap;gap:10px 28px"><a href="#">Instagram ↗</a><a href="#">LinkedIn ↗</a><a href="#">Mastodon ↗</a><a href="#">Are.na ↗</a><a href="#">YouTube ↗</a></div>
+<div style="display:flex;flex-wrap:wrap;gap:10px 28px;color:#A8A8A4"><a href="mailto:hello@signalnoise.events">hello@signalnoise.events</a><span>© 2027 Signal/Noise Foundation</span></div>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showGrid&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;fieldDensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:16,&quot;min&quot;:10,&quot;max&quot;:30,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;},&quot;cursorRadius&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1.4,&quot;min&quot;:0.6,&quot;max&quot;:3,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;}}">
+const SPEAKERS = [
+  { name: 'Ines Okafor-Brandt', role: 'Design Director, Hollow Studio', talk: 'The Taste Problem', slot: 'D1 · 09:30', track: 'Design', bio: 'Leads a 40-person studio that builds identity systems for cultural institutions. Has spent three years testing where generative tools help a brand and where they flatten it.' },
+  { name: 'Tomasz Wierzbicki', role: 'Research Engineer, Kiln Labs', talk: 'Latent Space Is a Layout Problem', slot: 'D1 · 10:15', track: 'AI', bio: 'Works on interpretability tooling for image models. Trained as an architect before moving into machine learning, and still thinks in plans and sections.' },
+  { name: 'Priya Raman', role: 'Principal Designer, Meridian Health', talk: 'Designing for Uncertain Outputs', slot: 'D1 · 11:30', track: 'Design', bio: 'Designs clinical tools where model confidence changes what a nurse sees on screen. Previously ran design research for a national transit app.' },
+  { name: 'Jonah Feld', role: 'Head of Applied AI, Tessellate', talk: 'Evals Are the New Style Guide', slot: 'D1 · 11:30', track: 'AI', bio: 'Built the evaluation pipeline behind Tessellate’s writing assistant. Argues that the people who define quality should be the ones writing the tests.' },
+  { name: 'Mika Aaltonen', role: 'Type Designer, Foundry Nord', talk: 'Generative Type Systems in Production', slot: 'D1 · 13:45', track: 'Craft', bio: 'Draws variable typefaces for signage and screens. Her parametric families ship with rules, so they can extend themselves without losing their voice.' },
+  { name: 'Sofia Mendes', role: 'Product Lead, Relay', talk: 'Agents Need Interfaces Too', slot: 'D1 · 13:45', track: 'AI', bio: 'Runs product for an agent platform used by operations teams. Focused on handoffs: the moments when software should stop and ask a person.' },
+  { name: 'Kwame Asante', role: 'Design Ethicist, Open Commons Institute', talk: 'The Ethics of Default Settings', slot: 'D1 · 15:00', track: 'Design', bio: 'Studies how defaults shape behaviour at scale. Advises regulators and product teams on consent, disclosure and the design of automated decisions.' },
+  { name: 'Lea Vogt', role: 'Creative Technologist, Independent', talk: 'Shader Sketchbook', slot: 'D1 · 15:00', track: 'Craft', bio: 'Makes realtime installations for museums and live shows. Keeps a daily shader practice and teaches creative coding in Berlin.' },
+  { name: 'Haruto Sato', role: 'Motion Director, Field Office Tokyo', talk: 'Motion as Meaning', slot: 'D2 · 09:30', track: 'Design', bio: 'Directs motion systems for transit and broadcast. Interested in how timing alone can tell a user what a machine is doing.' },
+  { name: 'Amara Diallo', role: 'VP Product, Northlight', talk: 'Shipping Probabilistic Products', slot: 'D2 · 10:15', track: 'AI', bio: 'Has launched four AI features to tens of millions of users. Will talk candidly about the ones that were rolled back and why.' },
+  { name: 'Elin Strand', role: 'Creative Director, Studio Brakke', talk: 'Brand Systems That Learn', slot: 'D2 · 11:30', track: 'Design', bio: 'Designs brand systems meant to be operated by software as much as by people. Her studio publishes its generative toolkits as open source.' },
+  { name: 'Rafael Ortega', role: 'Artist & Toolmaker', talk: 'Noise as Material', slot: 'D2 · 16:15', track: 'Craft', bio: 'Builds his own plotters, looms and models. His work treats randomness as a material to be shaped rather than a problem to be removed.' }
+];
+
+const DAYS = [
+  { label: 'Day 1', date: 'Thu 14.05.2027', sessions: [
+    ['08:30', 'Registration & coffee', '', null, 'Foyer'],
+    ['09:30', 'Opening keynote: The Taste Problem', 'Ines Okafor-Brandt', 'Design', 'Main Hall'],
+    ['10:15', 'Latent Space Is a Layout Problem', 'Tomasz Wierzbicki', 'AI', 'Main Hall'],
+    ['10:15', 'Workshop: Letterpress for Prompt Writers', 'Studio Brakke team', 'Craft', 'The Workshop'],
+    ['11:30', 'Designing for Uncertain Outputs', 'Priya Raman', 'Design', 'Room B'],
+    ['11:30', 'Evals Are the New Style Guide', 'Jonah Feld', 'AI', 'Main Hall'],
+    ['12:30', 'Lunch', '', null, 'Terrace'],
+    ['13:45', 'Generative Type Systems in Production', 'Mika Aaltonen', 'Craft', 'Main Hall'],
+    ['13:45', 'Agents Need Interfaces Too', 'Sofia Mendes', 'AI', 'Room B'],
+    ['15:00', 'The Ethics of Default Settings', 'Kwame Asante', 'Design', 'Main Hall'],
+    ['15:00', 'Workshop: Shader Sketchbook', 'Lea Vogt', 'Craft', 'The Workshop'],
+    ['16:30', 'Panel: Who Signs the Work?', 'Okafor-Brandt, Asante, Feld, Vogt', 'Design', 'Main Hall'],
+    ['18:00', 'Opening night', '', null, 'Warehouse terrace']
+  ]},
+  { label: 'Day 2', date: 'Fri 15.05.2027', sessions: [
+    ['09:00', 'Coffee', '', null, 'Foyer'],
+    ['09:30', 'Motion as Meaning', 'Haruto Sato', 'Design', 'Main Hall'],
+    ['10:15', 'Shipping Probabilistic Products', 'Amara Diallo', 'AI', 'Main Hall'],
+    ['10:15', 'Critique Clinic: Bring Your Prototype', 'Priya Raman & Ines Okafor-Brandt', 'Design', 'Room B'],
+    ['11:30', 'Brand Systems That Learn', 'Elin Strand', 'Design', 'Main Hall'],
+    ['11:30', 'Workshop: Fine-tuning for Designers', 'Tomasz Wierzbicki', 'AI', 'The Workshop'],
+    ['12:30', 'Lunch', '', null, 'Terrace'],
+    ['13:45', 'Workshop: Plotter Lab', 'Rafael Ortega', 'Craft', 'The Workshop'],
+    ['13:45', 'Interface Patterns for Agents', 'Sofia Mendes', 'AI', 'Room B'],
+    ['15:00', 'Type Crits', 'Mika Aaltonen', 'Craft', 'Room B'],
+    ['15:00', 'Research Lightning Talks', 'Six speakers, 8 minutes each', 'AI', 'Main Hall'],
+    ['16:15', 'Closing keynote: Noise as Material', 'Rafael Ortega', 'Craft', 'Main Hall'],
+    ['17:30', 'Closing drinks', '', null, 'Warehouse terrace']
+  ]}
+];
+
+const GLYPH = { Design: '■', AI: '●', Craft: '▲' };
+const TARGET = Date.UTC(2027, 4, 14, 7, 0, 0);
+const pad = n => String(n).padStart(2, '0');
+
+class Component extends DCLogic {
+  state = { now: Date.now(), day: 0, tracks: [], hover: -1 };
+  rootRef = React.createRef();
+  heroRef = React.createRef();
+  fieldRef = React.createRef();
+
+  componentDidMount() {
+    this.timer = setInterval(() => this.setState({ now: Date.now() }), 1000);
+    this.mouse = { cx: -9999, cy: -9999, last: -1e9 };
+    this.onMove = e => { this.mouse.cx = e.clientX; this.mouse.cy = e.clientY; this.mouse.last = performance.now(); };
+    this.onResize = () => { this.fitAll(); this.sizeCanvas(); };
+    window.addEventListener('pointermove', this.onMove, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    const p = new Uint8Array(512);
+    for (let i = 0; i < 256; i++) p[i] = (Math.random() * 256) | 0;
+    for (let i = 0; i < 256; i++) p[i + 256] = p[i];
+    this.perm = p;
+    this.setupCanvas();
+    this.fitAll();
+    if (document.fonts) document.fonts.ready.then(() => this.fitAll());
+    setTimeout(() => this.fitAll(), 600);
+    if (window.ResizeObserver) {
+      let lastW = -1, lastH = -1;
+      this.ro = new ResizeObserver(() => {
+        const root = this.rootRef.current, host = this.fieldRef.current;
+        const w = root ? root.clientWidth : 0, h = host ? host.clientHeight : 0;
+        if (w === lastW && h === lastH) return; lastW = w; lastH = h;
+        this.fitAll(); this.sizeCanvas();
+      });
+      if (this.rootRef.current) this.ro.observe(this.rootRef.current);
+      if (this.fieldRef.current) this.ro.observe(this.fieldRef.current);
+    }
+    this.loop = this.loop.bind(this);
+    this.raf = requestAnimationFrame(this.loop);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+    if (this.ro) this.ro.disconnect();
+    cancelAnimationFrame(this.raf);
+    window.removeEventListener('pointermove', this.onMove);
+    window.removeEventListener('resize', this.onResize);
+  }
+
+  fitAll() {
+    const root = this.rootRef.current; if (!root) return;
+    const ls = [...root.querySelectorAll('[data-l]')];
+    ls.forEach(el => { const b = (el.dataset.b || '800,112').split(','); el.style.fontVariationSettings = `"wght" ${b[0]}, "wdth" ${b[1]}`; });
+    root.querySelectorAll('[data-fitgroup]').forEach(g => {
+      g.style.fontSize = '100px';
+      const avail = g.clientWidth;
+      const maxW = Math.max(...[...g.querySelectorAll('[data-fit]')].map(l => l.scrollWidth));
+      if (maxW > 0) g.style.fontSize = Math.min(100 * avail / maxW * 0.985, +(g.dataset.max || 2000)) + 'px';
+    });
+    this.letters = ls.map((el, i) => {
+      const r = el.getBoundingClientRect();
+      return { el, i, x: r.left + r.width / 2 + scrollX, y: r.top + r.height / 2 + scrollY,
+        b: (el.dataset.b || '800,112').split(',').map(Number), t: (el.dataset.t || '100,62').split(',').map(Number),
+        v: 0, pv: -1, fs: parseFloat(getComputedStyle(el).fontSize) };
+    });
+    this.mLines = [...root.querySelectorAll('[data-ml]')];
+    const hero = this.fieldRef.current;
+    if (hero) this.heroTop = hero.getBoundingClientRect().top + scrollY;
+  }
+
+  setupCanvas() {
+    const host = this.fieldRef.current; if (!host) return;
+    const c = document.createElement('canvas');
+    c.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block';
+    host.appendChild(c);
+    this.cv = c; this.ctx = c.getContext('2d');
+    this.sizeCanvas();
+  }
+  sizeCanvas() {
+    const c = this.cv; if (!c) return;
+    const r = c.parentElement.getBoundingClientRect();
+    this.dpr = Math.min(2, window.devicePixelRatio || 1);
+    c.width = Math.round(r.width * this.dpr); c.height = Math.round(r.height * this.dpr);
+    this.cw = r.width; this.ch = r.height;
+    this.heroTop = r.top + scrollY;
+  }
+  noise(x, y) {
+    const p = this.perm, ix = Math.floor(x), iy = Math.floor(y), fx = x - ix, fy = y - iy;
+    const h = (i, j) => p[(i + p[j & 255]) & 255] / 255;
+    const u = fx * fx * (3 - 2 * fx), v = fy * fy * (3 - 2 * fy);
+    const a = h(ix, iy), b = h(ix + 1, iy), c = h(ix, iy + 1), d = h(ix + 1, iy + 1);
+    return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
+  }
+  drawField(ts, idle) {
+    const ctx = this.ctx; if (!ctx) return;
+    const host = this.cv.parentElement;
+    if (!this.cw || Math.abs(host.clientWidth - this.cw) > 1 || Math.abs(host.clientHeight - this.ch) > 1) this.sizeCanvas();
+    if (!this.cw || scrollY > this.ch) return;
+    const sp = this.props.fieldDensity ?? 16, cw = this.cw, ch = this.ch;
+    ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    ctx.clearRect(0, 0, cw, ch);
+    const t = ts * 0.00012, f = 0.0048;
+    const mx = idle ? -9999 : this.mouse.cx, my = idle ? -9999 : this.mouse.cy + scrollY - (this.heroTop || 0);
+    const gray = new Path2D(), sig = new Path2D(), max = sp * 0.46, s2 = 2 * 150 * 150;
+    let iy = 0;
+    for (let y = sp / 2; y < ch; y += sp, iy++) {
+      let ix = 0;
+      for (let x = sp / 2; x < cw; x += sp, ix++) {
+        const n = this.noise(x * f + t, y * f - t * 0.7) * 0.65 + this.noise(x * f * 2.3 - t * 1.4, y * f * 2.3 + t) * 0.35;
+        const dx = x - mx, dy = y - my, b = Math.exp(-(dx * dx + dy * dy) / s2);
+        const r = Math.min(max, (Math.pow(n, 2.4) * 1.3 + b * 0.55) * sp * 0.5);
+        if (r < 0.5) continue;
+        const target = (b > 0.5 || (n > 0.7 && (ix * 7 + iy * 13) % 4 === 0)) ? sig : gray;
+        target.moveTo(x + r, y); target.arc(x, y, r, 0, 6.2832);
+      }
+    }
+    ctx.fillStyle = 'rgba(11,11,11,0.24)'; ctx.fill(gray);
+    ctx.fillStyle = '#FF4F00'; ctx.fill(sig);
+  }
+
+  loop(ts) {
+    this.raf = requestAnimationFrame(this.loop);
+    const vh = innerHeight, sy = scrollY, m = this.mouse;
+    const idle = ts - m.last > 2500;
+    if (this.mLines) {
+      const ps = this.mLines.map(el => { const r = el.getBoundingClientRect(); return Math.max(0, Math.min(1, (vh * 0.88 - r.top) / (vh * 0.32))); });
+      this.mLines.forEach((el, i) => {
+        const p = ps[i]; if (el._p !== undefined && Math.abs(el._p - p) < 0.003) return; el._p = p;
+        el.style.opacity = (0.12 + 0.88 * p).toFixed(3);
+        el.style.fontVariationSettings = `"wght" ${Math.round(150 + 620 * p)}, "wdth" ${(100 - 22 * p).toFixed(1)}`;
+        el.style.transform = `translateY(${((1 - p) * 24).toFixed(1)}px)`;
+      });
+    }
+    if (!this.fitOk || (this._fc = (this._fc || 0) + 1) % 30 === 0) {
+      const g = this.heroRef.current;
+      const l = g && g.querySelector('[data-fit]');
+      if (g && l && g.clientWidth > 0 && (!this.fitOk || Math.abs(g.clientWidth - this.fitW) > 1)) { this.fitAll(); this.fitOk = l.scrollWidth > 0; this.fitW = g.clientWidth; }
+    }
+    if (this.letters) {
+      const R = this.props.cursorRadius ?? 1.4, px = m.cx + scrollX, py = m.cy + sy;
+      for (const L of this.letters) {
+        if (L.y < sy - vh * 0.5 || L.y > sy + vh * 1.5) continue;
+        let tgt;
+        if (idle) tgt = Math.pow((Math.sin(ts * 0.0013 - L.i * 0.5) + 1) / 2, 4) * 0.75;
+        else { const d = Math.hypot(px - L.x, py - L.y) / (L.fs * R); tgt = Math.max(0, 1 - d); tgt = tgt * tgt * (3 - 2 * tgt); }
+        L.v += (tgt - L.v) * 0.1;
+        if (Math.abs(L.v - L.pv) < 0.002) continue; L.pv = L.v;
+        L.el.style.fontVariationSettings = `"wght" ${Math.round(L.b[0] + (L.t[0] - L.b[0]) * L.v)}, "wdth" ${(L.b[1] + (L.t[1] - L.b[1]) * L.v).toFixed(1)}`;
+      }
+    }
+    this.drawField(ts, idle);
+  }
+
+  renderVals() {
+    const { now, day, tracks, hover } = this.state;
+    const diff = Math.max(0, TARGET - now);
+    const cd = { d: String(Math.floor(diff / 864e5)).padStart(3, '0'), h: pad(Math.floor(diff / 36e5) % 24), m: pad(Math.floor(diff / 6e4) % 60), s: pad(Math.floor(diff / 1e3) % 60) };
+    const speakers = SPEAKERS.map((s, i) => ({ ...s, num: pad(i + 1), active: hover === i,
+      onEnter: () => this.setState({ hover: i }), onLeave: () => this.setState({ hover: -1 }),
+      onTap: () => this.setState(st => ({ hover: st.hover === i ? -1 : i })) }));
+    const tabs = DAYS.map((d, i) => ({ label: d.label, date: d.date, bg: i === day ? '#0B0B0B' : 'transparent', fg: i === day ? '#FAFAF8' : '#0B0B0B', onClick: () => this.setState({ day: i }) }));
+    const all = DAYS[day].sessions;
+    const filters = ['All', 'Design', 'AI', 'Craft'].map(k => {
+      const on = k === 'All' ? tracks.length === 0 : tracks.includes(k);
+      return { label: k, glyph: k === 'All' ? '◇' : GLYPH[k], count: k === 'All' ? all.filter(s => s[3]).length : all.filter(s => s[3] === k).length,
+        bg: on ? '#FF4F00' : 'transparent',
+        onClick: () => this.setState(st => {
+          if (k === 'All') return { tracks: [] };
+          const next = st.tracks.includes(k) ? st.tracks.filter(x => x !== k) : [...st.tracks, k];
+          return { tracks: next.length === 3 ? [] : next };
+        }) };
+    });
+    const sessions = all.filter(s => !s[3] || !tracks.length || tracks.includes(s[3])).map(([time, title, speaker, track, room]) => ({
+      time, title, speaker, room, trackLabel: track || 'Break', glyph: track ? GLYPH[track] : '—',
+      color: track ? '#0B0B0B' : '#8A8A86', wght: track ? 700 : 300,
+      size: track ? 'clamp(22px,2.4vw,36px)' : 'clamp(18px,1.6vw,24px)' }));
+    return { rootRef: this.rootRef, heroRef: this.heroRef, fieldRef: this.fieldRef, showGrid: !!this.props.showGrid, cd, speakers, tabs, filters, sessions };
+  }
+}
+</script>
+</body>
+</html>
